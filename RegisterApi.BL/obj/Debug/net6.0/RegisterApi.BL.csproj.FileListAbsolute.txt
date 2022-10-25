@@ -1,0 +1,17 @@
+E:\GitHub\Register Project\Register\RegisterApi.BL\bin\Debug\net6.0\RegisterApi.BL.deps.json
+E:\GitHub\Register Project\Register\RegisterApi.BL\bin\Debug\net6.0\RegisterApi.BL.dll
+E:\GitHub\Register Project\Register\RegisterApi.BL\bin\Debug\net6.0\RegisterApi.BL.pdb
+E:\GitHub\Register Project\Register\RegisterApi.BL\bin\Debug\net6.0\RegisterApi.DAL.dll
+E:\GitHub\Register Project\Register\RegisterApi.BL\bin\Debug\net6.0\RegisterApi.Domain.dll
+E:\GitHub\Register Project\Register\RegisterApi.BL\bin\Debug\net6.0\RegisterApi.DAL.pdb
+E:\GitHub\Register Project\Register\RegisterApi.BL\bin\Debug\net6.0\RegisterApi.Domain.pdb
+E:\GitHub\Register Project\Register\RegisterApi.BL\obj\Debug\net6.0\RegisterApi.BL.csproj.AssemblyReference.cache
+E:\GitHub\Register Project\Register\RegisterApi.BL\obj\Debug\net6.0\RegisterApi.BL.GeneratedMSBuildEditorConfig.editorconfig
+E:\GitHub\Register Project\Register\RegisterApi.BL\obj\Debug\net6.0\RegisterApi.BL.AssemblyInfoInputs.cache
+E:\GitHub\Register Project\Register\RegisterApi.BL\obj\Debug\net6.0\RegisterApi.BL.AssemblyInfo.cs
+E:\GitHub\Register Project\Register\RegisterApi.BL\obj\Debug\net6.0\RegisterApi.BL.csproj.CoreCompileInputs.cache
+E:\GitHub\Register Project\Register\RegisterApi.BL\obj\Debug\net6.0\RegisterApi.BL.csproj.CopyComplete
+E:\GitHub\Register Project\Register\RegisterApi.BL\obj\Debug\net6.0\RegisterApi.BL.dll
+E:\GitHub\Register Project\Register\RegisterApi.BL\obj\Debug\net6.0\refint\RegisterApi.BL.dll
+E:\GitHub\Register Project\Register\RegisterApi.BL\obj\Debug\net6.0\RegisterApi.BL.pdb
+E:\GitHub\Register Project\Register\RegisterApi.BL\obj\Debug\net6.0\ref\RegisterApi.BL.dll

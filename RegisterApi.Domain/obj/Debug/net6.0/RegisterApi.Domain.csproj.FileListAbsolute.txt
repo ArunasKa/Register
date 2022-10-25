@@ -1,0 +1,12 @@
+E:\GitHub\Register Project\Register\RegisterApi.Domain\bin\Debug\net6.0\RegisterApi.Domain.deps.json
+E:\GitHub\Register Project\Register\RegisterApi.Domain\bin\Debug\net6.0\RegisterApi.Domain.dll
+E:\GitHub\Register Project\Register\RegisterApi.Domain\bin\Debug\net6.0\RegisterApi.Domain.pdb
+E:\GitHub\Register Project\Register\RegisterApi.Domain\obj\Debug\net6.0\RegisterApi.Domain.csproj.AssemblyReference.cache
+E:\GitHub\Register Project\Register\RegisterApi.Domain\obj\Debug\net6.0\RegisterApi.Domain.GeneratedMSBuildEditorConfig.editorconfig
+E:\GitHub\Register Project\Register\RegisterApi.Domain\obj\Debug\net6.0\RegisterApi.Domain.AssemblyInfoInputs.cache
+E:\GitHub\Register Project\Register\RegisterApi.Domain\obj\Debug\net6.0\RegisterApi.Domain.AssemblyInfo.cs
+E:\GitHub\Register Project\Register\RegisterApi.Domain\obj\Debug\net6.0\RegisterApi.Domain.csproj.CoreCompileInputs.cache
+E:\GitHub\Register Project\Register\RegisterApi.Domain\obj\Debug\net6.0\RegisterApi.Domain.dll
+E:\GitHub\Register Project\Register\RegisterApi.Domain\obj\Debug\net6.0\refint\RegisterApi.Domain.dll
+E:\GitHub\Register Project\Register\RegisterApi.Domain\obj\Debug\net6.0\RegisterApi.Domain.pdb
+E:\GitHub\Register Project\Register\RegisterApi.Domain\obj\Debug\net6.0\ref\RegisterApi.Domain.dll

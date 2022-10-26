@@ -18,14 +18,19 @@ namespace RegisterApi.DAL.Repository
             _context = context;
         }
 
+        public async Task CreatePersonAccountAsync(Person person)
+        {
+            await _context.PersonInformation.AddAsync(person);
+        }
+
         public async Task<UserAccount?> GetAccountByUserNameAsync(string username)
         {
-            return await _context.RegisterUserAccounts.SingleOrDefaultAsync(u => u.UserName == username);
+            return await _context.UserInformation.SingleOrDefaultAsync(u => u.UserName == username);
         }
 
         public async Task InsertAccountAsync(UserAccount userAccount)
         {
-            await _context.RegisterUserAccounts.AddAsync(userAccount);
+            await _context.UserInformation.AddAsync(userAccount);
         }
         public async Task SaveChangesAsync()
         {

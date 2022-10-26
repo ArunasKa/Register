@@ -1,3 +1,4 @@
+//MAKE ONLY 3 TABLES IN SQL
 using Microsoft.EntityFrameworkCore;
 using RegisterApi.BL.Interfaces;
 using RegisterApi.BL.Services;

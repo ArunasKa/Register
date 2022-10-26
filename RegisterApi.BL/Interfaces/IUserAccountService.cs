@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RegisterApi.Domain.Dtos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace RegisterApi.BL.Interfaces
 {
     public interface IUserAccountsService
     {
-        Task<bool> CreateUserAccountAsync(string userName, string password);
+        Task<bool> CreateUserAccountAsync(SingupDto signupDto);
         Task<(bool authenticationsuccessful, string? role)> LogInAsync(string userName, string pasword);
 
     }

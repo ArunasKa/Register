@@ -10,7 +10,9 @@ namespace RegisterApi.DAL
 {
     public class FullStackDbContext : DbContext
     {
-        public DbSet<UserAccount> RegisterUserAccounts { get; set; }
+        public DbSet<UserAccount> UserInformation { get; set; }
+        public DbSet<Person> PersonInformation { get; set; }
+        public DbSet<Address> AdrressInformation { get; set; }
         public FullStackDbContext(DbContextOptions options) : base(options)
         {
 

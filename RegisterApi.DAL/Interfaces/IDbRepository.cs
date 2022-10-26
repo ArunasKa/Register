@@ -12,5 +12,6 @@ namespace RegisterApi.DAL.Interfaces
         public  Task<UserAccount?> GetAccountByUserNameAsync(string username);
         public  Task InsertAccountAsync(UserAccount userAccount);
         public  Task SaveChangesAsync();
+        public  Task CreatePersonAccountAsync(Person person);
     }
 }

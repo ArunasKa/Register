@@ -20,10 +20,10 @@ namespace RegisterApi.Controllers
         }
 
         [HttpPost("Signup")]
-        public async Task<IActionResult> Signup(SingupDto signupDto)
+        public async Task<IActionResult> Signup([FromForm] SingupDto signupDto)
         {
 
-            var success = await _userAccountsService.CreateUserAccountAsync(signupDto.UserName, signupDto.Password);
+            var success = await _userAccountsService.CreateUserAccountAsync(signupDto);
 
             return success ? Ok() : BadRequest(new { ErrorMessage = "User already exist" });
         }

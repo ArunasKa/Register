@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RegisterApi.DAL;
 
@@ -11,9 +12,10 @@ using RegisterApi.DAL;
 namespace RegisterApi.DAL.Migrations
 {
     [DbContext(typeof(FullStackDbContext))]
-    partial class FullStackDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221026164911_InnitialCreate")]
+    partial class InnitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -133,9 +135,6 @@ namespace RegisterApi.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("varbinary(max)");
 
-                    b.Property<int>("PersonId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Role")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -145,8 +144,6 @@ namespace RegisterApi.DAL.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("PersonId");
 
                     b.ToTable("UserInformation");
                 });
@@ -168,17 +165,6 @@ namespace RegisterApi.DAL.Migrations
                     b.Navigation("HomeAddress");
 
                     b.Navigation("ProfilePicture");
-                });
-
-            modelBuilder.Entity("RegisterApi.Domain.Models.UserAccount", b =>
-                {
-                    b.HasOne("RegisterApi.Domain.Models.Person", "Person")
-                        .WithMany()
-                        .HasForeignKey("PersonId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Person");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,5 +1,6 @@
 ﻿using RegisterApi.BL.Interfaces;
 using RegisterApi.DAL.Interfaces;
+using RegisterApi.Domain.Dtos;
 using RegisterApi.Domain.Models;
 using System;
 using System.Collections.Generic;
@@ -38,29 +39,62 @@ namespace RegisterApi.BL.Services
             return computedHash.SequenceEqual(passwordHash);
         }
 
-        public async Task<bool> CreateUserAccountAsync(string userName, string password)
+        public async Task<bool> CreateUserAccountAsync(SingupDto signupDto)
         {
-            var existingUser = await _repository.GetAccountByUserNameAsync(userName);
+            var existingUser = await _repository.GetAccountByUserNameAsync(signupDto.UserName);
             if (existingUser != null)
             {
                 return false;
             }
 
-            var (hash, salt) = CreatePasswordHash(password);
+            var (hash, salt) = CreatePasswordHash(signupDto.Password);
+
+
+
+            using var memoryStream = new MemoryStream();
+            signupDto.PersonDto.Image.CopyTo(memoryStream);
+            var imageByte = memoryStream.ToArray();
+            var newPerson = new Person
+            {
+                Name = signupDto.UserName,
+                LastName = signupDto.PersonDto.LastName,
+                PersonalCode = signupDto.PersonDto.PersonalCode,
+                PhoneNumber = signupDto.PersonDto.PhoneNumber,
+                Email = signupDto.PersonDto.Email,
+
+                ProfilePicture = new Image
+                {
+                    ImageBytes = imageByte,
+                    FileName = signupDto.PersonDto.Image.FileName,
+                    ContentType = signupDto.PersonDto.Image.ContentType,
+                },
+                HomeAddress = new Address
+                {
+                    City = signupDto.PersonDto.City,
+                    StreetName = signupDto.PersonDto.StreetName,
+                    HouseNumber = signupDto.PersonDto.HouseNumber,
+                    ApartmentNumber = signupDto.PersonDto.ApartmentNumber,
+                },
+
+            };
 
             var newUser = new UserAccount
             {
-                UserName = userName,
+                UserName = signupDto.UserName,
                 PasswordHash = hash,
                 PasswordSalt = salt,
-                Role = "User"
+                Role = "User",
+                Person = newPerson,
             };
 
+
             await _repository.InsertAccountAsync(newUser);
+            //await _repository.CreatePersonAccountAsync(newPerson);
             await _repository.SaveChangesAsync();
 
             return true;
         }
+
 
         private (byte[] hash, byte[] salt) CreatePasswordHash(string password)
         {

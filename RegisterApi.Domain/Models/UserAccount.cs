@@ -13,6 +13,8 @@ namespace RegisterApi.Domain.Models
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
         public string Role { get; set; }
+        public Person Person { get; set; }
+
         //zmogaus informaciojos sarysis (asmens kodas?)
 
     }

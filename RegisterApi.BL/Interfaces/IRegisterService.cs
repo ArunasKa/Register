@@ -10,7 +10,7 @@ namespace RegisterApi.BL.Interfaces
 {
     public interface IRegisterService
     {
-        Task<HttpResponseMessage> UpdatePersonAsync(int id, Person newUser);
+        Task UpdatePersonAsync(int id, Person newUser);
         Task<Person?> GetPersonByIdAsync(int id);
     }
 }

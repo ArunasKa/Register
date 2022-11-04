@@ -25,19 +25,10 @@ namespace RegisterApi.BL.Services
             return await _repository.GetPersonByIdAsync(id);
         }
 
-        public async Task<HttpResponseMessage> UpdatePersonAsync(int id, Person newUser)
+        public async Task UpdatePersonAsync(int id, Person newUser)
         {
-           
-
-            var userToUpdate = await _repository.GetPersonByIdAsync(id);
-            if (userToUpdate == null)
-                throw new ArgumentException("No user with such id");
-
-            userToUpdate = newUser;
-            _repository.UpdatePerson(userToUpdate);
+            _repository.UpdatePerson(newUser);
             await _repository.SaveChangesAsync();
-            return new HttpResponseMessage(HttpStatusCode.OK);
-
         }
     }
 }

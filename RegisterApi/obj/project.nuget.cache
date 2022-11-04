@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "odPMJOqin0kgO4DE4ThEGdumM7ZryCK6lie519vhR9zblaCekLdmVdpaIlJtbGBXyhejjuWwzB+YOnr0CmT/hA==",
+  "dgSpecHash": "iKnB+1JYzGLCN+7drV1pxCAgN24vsRt74uPrJFn5HjRzdQcIwDSvpF7PJsfIu49mi9D9OMOz9mMjObeQqNfmVQ==",
   "success": true,
   "projectFilePath": "E:\\GitHub\\Register Project\\Register\\RegisterApi\\RegisterApi.csproj",
   "expectedPackageFiles": [
@@ -40,6 +40,7 @@
     "C:\\Users\\aruna\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
     "C:\\Users\\aruna\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512",
     "C:\\Users\\aruna\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
+    "C:\\Users\\aruna\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
     "C:\\Users\\aruna\\.nuget\\packages\\system.configuration.configurationmanager\\4.7.0\\system.configuration.configurationmanager.4.7.0.nupkg.sha512",
     "C:\\Users\\aruna\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.0\\system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",
     "C:\\Users\\aruna\\.nuget\\packages\\system.drawing.common\\4.7.0\\system.drawing.common.4.7.0.nupkg.sha512",

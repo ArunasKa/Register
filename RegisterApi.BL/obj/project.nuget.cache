@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "4wJVcf5oQ1rjCJioeE/OsOMkjQCV5QQ+QHnS0rfP7iNChqtHXlgx2wibFTD8LwrfEepwu4qXZfbi68/9KU/CyQ==",
+  "dgSpecHash": "gB78Aum8Hv9uRht61flLs2FatrFaUagHNQePfZJ3JnrHYSyvlyE41Hs3iJqL9o2SZqHd3lnobDkr09pxTlRvkw==",
   "success": true,
   "projectFilePath": "E:\\GitHub\\Register Project\\Register\\RegisterApi.BL\\RegisterApi.BL.csproj",
   "expectedPackageFiles": [
@@ -32,6 +32,7 @@
     "C:\\Users\\aruna\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\aruna\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\aruna\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
+    "C:\\Users\\aruna\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
     "C:\\Users\\aruna\\.nuget\\packages\\system.configuration.configurationmanager\\4.7.0\\system.configuration.configurationmanager.4.7.0.nupkg.sha512",
     "C:\\Users\\aruna\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.0\\system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",
     "C:\\Users\\aruna\\.nuget\\packages\\system.drawing.common\\4.7.0\\system.drawing.common.4.7.0.nupkg.sha512",

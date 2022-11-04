@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -10,10 +11,15 @@ namespace RegisterApi.Domain.Models
     public class Person
     {
         public int Id { get; set; }
+        [MaxLength(250), Required]
         public string Name { get; set; }
+        [MaxLength(250), Required]
         public string LastName { get; set; }
+        [MaxLength(100), Required]
         public int PersonalCode { get; set; }
+        [MaxLength(50), Required]
         public int PhoneNumber { get; set; }
+        [MaxLength(500), Required]
         public string Email { get; set; }
         public Image ProfilePicture { get; set; }
         public Address HomeAddress { get; set; }

@@ -20,6 +20,7 @@ builder.Services.AddDbContext<FullStackDbContext>(options =>
 builder.Services.AddScoped<IDbRepository, DbRepository>();
 builder.Services.AddScoped<IUserAccountsService, UserAccountsService>();
 builder.Services.AddScoped<IJWTService, JwtService>();
+builder.Services.AddScoped<IRegisterService, RegisterService>();
 
 var app = builder.Build();
 

@@ -23,9 +23,19 @@ namespace RegisterApi.DAL.Repository
             await _context.PersonInformation.AddAsync(person);
         }
 
+        public async Task<UserAccount?> GetAccountById(int id)
+        {
+            return await _context.UserInformation.SingleOrDefaultAsync(x => x.Id == id);
+        }
+
         public async Task<UserAccount?> GetAccountByUserNameAsync(string username)
         {
             return await _context.UserInformation.SingleOrDefaultAsync(u => u.UserName == username);
+        }
+
+        public async Task<Person?> GetPersonByIdAsync(int id)
+        {
+            return await _context.PersonInformation.SingleOrDefaultAsync(u => u.Id == id);
         }
 
         public async Task InsertAccountAsync(UserAccount userAccount)
@@ -35,6 +45,11 @@ namespace RegisterApi.DAL.Repository
         public async Task SaveChangesAsync()
         {
             await _context.SaveChangesAsync();
+        }
+
+        public  void UpdatePerson(Person userToUpdate)
+        {
+             _context.Update(userToUpdate);
         }
     }
 }

@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "mlML8g2M1JMN2PJlgIEuZ9MhVMlMbDclsFgS/dgovmy+KLmkUb0scCTAwkB37C4TVyro2WBniF5JpnfR7WRSvg==",
+  "dgSpecHash": "IfdE4c7bZT34D6qZ9SLLfkuPS4l27iDFgkTI+J9bIzzmwiRQ6cWFCdAlF4YqhbmIQ3ChQ8LsQCrJE9rtJsD6eQ==",
   "success": true,
   "projectFilePath": "E:\\GitHub\\Register Project\\Register\\RegisterApi.Domain\\RegisterApi.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\aruna\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
     "C:\\Users\\aruna\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
+    "C:\\Users\\aruna\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
     "C:\\Users\\aruna\\.nuget\\packages\\system.io.pipelines\\5.0.2\\system.io.pipelines.5.0.2.nupkg.sha512"
   ],
   "logs": []

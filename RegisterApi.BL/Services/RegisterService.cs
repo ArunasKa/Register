@@ -20,6 +20,7 @@ namespace RegisterApi.BL.Services
             _repository = dbRepository;
         }
 
+
         public async  Task<Person?> GetPersonByIdAsync(int id)
         {
             return await _repository.GetPersonByIdAsync(id);

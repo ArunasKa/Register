@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RegisterApi.DAL.Interfaces;
+using RegisterApi.Domain.Dtos;
 using RegisterApi.Domain.Models;
 using System;
 using System.Collections.Generic;
@@ -33,9 +34,10 @@ namespace RegisterApi.DAL.Repository
             return await _context.UserInformation.SingleOrDefaultAsync(u => u.UserName == username);
         }
 
+
         public async Task<Person?> GetPersonByIdAsync(int id)
         {
-            return await _context.PersonInformation.SingleOrDefaultAsync(u => u.Id == id);
+            return await _context.PersonInformation.Include("HomeAddress").SingleOrDefaultAsync(u => u.Id == id);
         }
 
         public async Task InsertAccountAsync(UserAccount userAccount)

@@ -61,13 +61,10 @@ namespace RegisterApi.BL.Services
                 PersonalCode = signupDto.PersonDto.PersonalCode,
                 PhoneNumber = signupDto.PersonDto.PhoneNumber,
                 Email = signupDto.PersonDto.Email,
-
-                ProfilePicture = new Image
-                {
-                    ImageBytes = imageByte,
-                    FileName = signupDto.PersonDto.Image.FileName,
-                    ContentType = signupDto.PersonDto.Image.ContentType,
-                },
+                ImageBytes = imageByte,
+                ImageFileName = signupDto.PersonDto.Image.FileName,
+                ImageContentType = signupDto.PersonDto.Image.ContentType,
+                
                 HomeAddress = new Address
                 {
                     City = signupDto.PersonDto.City,

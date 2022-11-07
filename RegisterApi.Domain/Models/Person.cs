@@ -21,7 +21,9 @@ namespace RegisterApi.Domain.Models
         public int PhoneNumber { get; set; }
         [MaxLength(500), Required]
         public string Email { get; set; }
-        public Image ProfilePicture { get; set; }
+        public byte[] ImageBytes { get; set; }
+        public string ImageFileName { get; set; }
+        public string ImageContentType { get; set; }
         public Address HomeAddress { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using RegisterApi.Domain.Models;
+﻿using RegisterApi.Domain.Dtos;
+using RegisterApi.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

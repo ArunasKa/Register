@@ -12,5 +12,6 @@ namespace RegisterApi.BL.Interfaces
     {
         Task UpdatePersonAsync(int id, Person newUser);
         Task<Person?> GetPersonByIdAsync(int id);
+        
     }
 }

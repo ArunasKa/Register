@@ -31,6 +31,7 @@ namespace RegisterApi.Controllers
         public async Task<ActionResult> LogIn(LoginDto loginModel)
         {
             var (loginSuccess, role) = await _userAccountsService.LogInAsync(loginModel.UserName, loginModel.Password);
+            
             if (!loginSuccess)
             {
                 return BadRequest(new { ErrorMessage = "No such user" });

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RegisterApi.BL.Interfaces;
@@ -10,6 +11,7 @@ namespace RegisterApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+
     public class RegisterController : ControllerBase
     {
         private readonly IRegisterService _registerService;
@@ -17,7 +19,10 @@ namespace RegisterApi.Controllers
         {
             _registerService = registerService;
         }
+        //[Authorize]
+        //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles ="Admin")]
         [HttpPost("Update username")]
+        [Authorize(AuthenticationSchemes =JwtBearerDefaults.AuthenticationScheme)]
         public async Task<ActionResult> UpdateUserName(int id, string name)
         {
             var userToUpdate = await _registerService.GetPersonByIdAsync(id);
@@ -93,10 +98,6 @@ namespace RegisterApi.Controllers
             ImageConverter converter = new ImageConverter();
             var resized =  (byte[])converter.ConvertTo(newImage, typeof(byte[]));
 
-            //using var memoryStream = new MemoryStream();
-            //image.Image.CopyTo(memoryStream);
-            //var imageByte = memoryStream.ToArray();
-
             userToUpdate.ImageBytes = resized;
             userToUpdate.ImageFileName = image.Image.FileName;
             userToUpdate.ImageContentType = image.Image.ContentType;
@@ -158,5 +159,22 @@ namespace RegisterApi.Controllers
             var image = await _registerService.GetPersonByIdAsync(id);
             return File(image.ImageBytes, image.ImageContentType);
         }
+        [HttpGet("Get All info by id")]
+        public async Task<ActionResult> GetAllInfoById(int id)
+        {
+            var user = await _registerService.GetPersonByIdAsync(id);
+            if (user == null)
+                return BadRequest("No user by id");
+            return Ok(user);
+        }
+        //[HttpDelete("Delete User")]
+        //public async Task<ActionResult> Delete(int id)
+        //{
+        //    var user = await _registerService.GetPersonByIdAsync(id);
+        //    if (user == null)
+        //        return BadRequest("No user by id");
+        //    _registerService.DeleteUserAsync(id);
+        //    return Ok("User Deleted");
+        //}
     }
 }

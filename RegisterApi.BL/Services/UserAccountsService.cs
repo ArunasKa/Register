@@ -23,6 +23,7 @@ namespace RegisterApi.BL.Services
         public async Task<(bool authenticationsuccessful, string? role)> LogInAsync(string userName, string pasword)
         {
             var account = await _repository.GetAccountByUserNameAsync(userName);
+            
             if (account == null)
             {
                 return (false, null);
@@ -64,7 +65,6 @@ namespace RegisterApi.BL.Services
                 ImageBytes = imageByte,
                 ImageFileName = signupDto.PersonDto.Image.FileName,
                 ImageContentType = signupDto.PersonDto.Image.ContentType,
-                
                 HomeAddress = new Address
                 {
                     City = signupDto.PersonDto.City,

@@ -20,10 +20,20 @@ namespace RegisterApi.BL.Services
             _repository = dbRepository;
         }
 
+        public   void DeleteUser(int id)
+        {
+              _repository.DeleteUser(id);
+              _repository.SaveChangesAsync();
+           
+        }
 
         public async  Task<Person?> GetPersonByIdAsync(int id)
         {
             return await _repository.GetPersonByIdAsync(id);
+        }
+        public async  Task<UserAccount?> GetUserIdAsync(int id)
+        {
+            return await _repository.GetUserByIdAsync(id);
         }
 
         public async Task UpdatePersonAsync(int id, Person newUser)

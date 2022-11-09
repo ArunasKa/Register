@@ -19,10 +19,7 @@ namespace RegisterApi.Controllers
         {
             _registerService = registerService;
         }
-        //[Authorize]
-        //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles ="Admin")]
         [HttpPost("Update username")]
-        [Authorize(AuthenticationSchemes =JwtBearerDefaults.AuthenticationScheme)]
         public async Task<ActionResult> UpdateUserName(int id, string name)
         {
             var userToUpdate = await _registerService.GetPersonByIdAsync(id);
@@ -167,14 +164,15 @@ namespace RegisterApi.Controllers
                 return BadRequest("No user by id");
             return Ok(user);
         }
-        //[HttpDelete("Delete User")]
-        //public async Task<ActionResult> Delete(int id)
-        //{
-        //    var user = await _registerService.GetPersonByIdAsync(id);
-        //    if (user == null)
-        //        return BadRequest("No user by id");
-        //    _registerService.DeleteUserAsync(id);
-        //    return Ok("User Deleted");
-        //}
+        [HttpDelete("Delete User")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
+        public async Task<ActionResult> Delete(int id)
+        {
+            var user = await _registerService.GetUserIdAsync(id);
+            if (user == null)
+                return BadRequest("No user by id");
+            _registerService.DeleteUser(id);
+            return Ok("User Deleted");
+        }
     }
 }

@@ -24,6 +24,14 @@ namespace RegisterApi.DAL.Repository
             await _context.PersonInformation.AddAsync(person);
         }
 
+        public  void DeleteUser(int id)
+        {
+            var UserToRemove = _context.UserInformation.Include("Person").Include("Person.HomeAddress").FirstOrDefault(x => x.Id == id);
+            // _context.UserInformation.Remove(UserToRemove);
+           // _context.PersonInformation.Remove(UserToRemove.Person);
+            _context.AdrressInformation.Remove(UserToRemove.Person.HomeAddress);
+        }
+
         public async Task<UserAccount?> GetAccountById(int id)
         {
             return await _context.UserInformation.SingleOrDefaultAsync(x => x.Id == id);
@@ -38,6 +46,10 @@ namespace RegisterApi.DAL.Repository
         public async Task<Person?> GetPersonByIdAsync(int id)
         {
             return await _context.PersonInformation.Include("HomeAddress").SingleOrDefaultAsync(u => u.Id == id);
+        }
+        public async Task<UserAccount?> GetUserByIdAsync(int id)
+        {
+            return await _context.UserInformation.Include("Person.HomeAddress").SingleOrDefaultAsync(u => u.Id == id);
         }
 
         public async Task InsertAccountAsync(UserAccount userAccount)

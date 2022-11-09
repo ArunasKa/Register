@@ -17,5 +17,7 @@ namespace RegisterApi.DAL.Interfaces
         Task<UserAccount?> GetAccountById(int id);
         void UpdatePerson(Person userToUpdate);
         Task<Person?> GetPersonByIdAsync(int id);
+        Task<UserAccount?> GetUserByIdAsync(int id);
+        void DeleteUser(int id);
     }
 }

@@ -20,15 +20,24 @@ namespace RegisterApi.Controllers
             _registerService = registerService;
         }
         [HttpPost("Update username")]
-        public async Task<ActionResult> UpdateUserName(int id, string name)
+        public async Task<ActionResult> UpdateUserName(int id, string username)
+        {//could be with http status to get code from service with all checks for data and if status 200 then update
+            var userToUpdate = await _registerService.GetUserIdAsync(id);
+            if (userToUpdate == null)
+                return BadRequest("No user by id");
+
+            await _registerService.UpdateUsernameAsync(id, username);
+            return Ok();
+        }
+
+        [HttpPost("Update name")]
+        public async Task<ActionResult> UpdateName(int id, string name)
         {
             var userToUpdate = await _registerService.GetPersonByIdAsync(id);
             if (userToUpdate == null)
                 return BadRequest("No user by id");
 
-            userToUpdate.Name = name;
-
-            await _registerService.UpdatePersonAsync(id, userToUpdate);
+            await _registerService.UpdateNameAsync(id, name);
             return Ok();
         }
         [HttpPost("Update lastname")]
@@ -38,21 +47,7 @@ namespace RegisterApi.Controllers
             if (userToUpdate == null)
                 return BadRequest("No user by id");
 
-            userToUpdate.LastName = lastName;
-            
-            await _registerService.UpdatePersonAsync(id, userToUpdate);
-            return Ok();
-        }
-        [HttpPost("Update Phone number")]
-        public async Task<ActionResult> UpdateEmail(int id, int phoneNumber)
-        {
-            var userToUpdate = await _registerService.GetPersonByIdAsync(id);
-            if (userToUpdate == null)
-                return BadRequest("No user by id");
-
-            userToUpdate.PhoneNumber = phoneNumber;
-
-            await _registerService.UpdatePersonAsync(id, userToUpdate);
+            await _registerService.UpdateLastNameAsync(id, lastName);
             return Ok();
         }
         [HttpPost("Update PersonalCode")]
@@ -62,44 +57,39 @@ namespace RegisterApi.Controllers
             if (userToUpdate == null)
                 return BadRequest("No user by id");
 
-            userToUpdate.PersonalCode = personalCode;
-
-            await _registerService.UpdatePersonAsync(id, userToUpdate);
+            await _registerService.UpdatePersonalCodeAsync(id, personalCode);
             return Ok();
         }
-         [HttpPost("Update Email")]
+
+        [HttpPost("Update Phone number")]
+        public async Task<ActionResult> UpdateEmail(int id, int phoneNumber)
+        {
+            var userToUpdate = await _registerService.GetPersonByIdAsync(id);
+            if (userToUpdate == null)
+                return BadRequest("No user by id");
+
+            await _registerService.UpdatePhoneNumberAsync(id, phoneNumber);
+            return Ok();
+        }
+        [HttpPost("Update Email")]
         public async Task<ActionResult> UpdateEmail(int id, string email)
         {
             var userToUpdate = await _registerService.GetPersonByIdAsync(id);
             if (userToUpdate == null)
                 return BadRequest("No user by id");
 
-            userToUpdate.Email = email;
-
-            await _registerService.UpdatePersonAsync(id, userToUpdate);
+            await _registerService.UpdateEmailAsync(id, email);
             return Ok();
         }
         [HttpPost("Update Photo")]
-        public async Task<ActionResult> UpdatePhoto(int id, [FromForm]ImageDto image)
+        //Quit program before starting end point?
+        public async Task<ActionResult> UpdatePhoto(int id, [FromForm] ImageDto image)
         {
             var userToUpdate = await _registerService.GetPersonByIdAsync(id);
             if (userToUpdate == null)
                 return BadRequest("No user by id");
 
-            Image result = Image.FromStream(image.Image.OpenReadStream(), true, true);
-            var newImage = new Bitmap(200, 200);
-            using (var g = Graphics.FromImage(newImage))
-            {
-                g.DrawImage(result, 0, 0, 200, 200);
-            }
-            ImageConverter converter = new ImageConverter();
-            var resized =  (byte[])converter.ConvertTo(newImage, typeof(byte[]));
-
-            userToUpdate.ImageBytes = resized;
-            userToUpdate.ImageFileName = image.Image.FileName;
-            userToUpdate.ImageContentType = image.Image.ContentType;
-
-            await _registerService.UpdatePersonAsync(id, userToUpdate);
+            await _registerService.UpdatePhotoAsync(id, image);
             return Ok();
         }
         [HttpPost("Update City")]
@@ -109,9 +99,7 @@ namespace RegisterApi.Controllers
             if (userToUpdate == null)
                 return BadRequest("No user by id");
 
-            userToUpdate.HomeAddress.City = city;
-
-            await _registerService.UpdatePersonAsync(id, userToUpdate);
+            await _registerService.UpdateCityAsync(id, city);
             return Ok();
         }
         [HttpPost("Update StreetName")]
@@ -121,9 +109,7 @@ namespace RegisterApi.Controllers
             if (userToUpdate == null)
                 return BadRequest("No user by id");
 
-            userToUpdate.HomeAddress.StreetName = StreetName;
-
-            await _registerService.UpdatePersonAsync(id, userToUpdate);
+            await _registerService.UpdateStreetNameAsync(id, StreetName);
             return Ok();
         }
         [HttpPost("Update HouseNumber")]
@@ -133,9 +119,7 @@ namespace RegisterApi.Controllers
             if (userToUpdate == null)
                 return BadRequest("No user by id");
 
-            userToUpdate.HomeAddress.HouseNumber = HouseNumber;
-
-            await _registerService.UpdatePersonAsync(id, userToUpdate);
+            await _registerService.UpdateHouseNumberAsync(id, HouseNumber);
             return Ok();
         }
         [HttpPost("Update ApartmentNumber")]
@@ -145,9 +129,7 @@ namespace RegisterApi.Controllers
             if (userToUpdate == null)
                 return BadRequest("No user by id");
 
-            userToUpdate.HomeAddress.ApartmentNumber = ApartmentNumber;
-
-            await _registerService.UpdatePersonAsync(id, userToUpdate);
+            await _registerService.UpdateApartmentNumberAsync(id, ApartmentNumber);
             return Ok();
         }
         [HttpGet("DownloadPicture")]

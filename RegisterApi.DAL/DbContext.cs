@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace RegisterApi.DAL
 {
-    public class FullStackDbContext : DbContext
+    public class DbContext : Microsoft.EntityFrameworkCore.DbContext
     {
         public DbSet<UserAccount> UserInformation { get; set; }
         public DbSet<Person> PersonInformation { get; set; }
         public DbSet<Address> AdrressInformation { get; set; }
-        public FullStackDbContext(DbContextOptions options) : base(options)
+        public DbContext(DbContextOptions options) : base(options)
         {
 
         }

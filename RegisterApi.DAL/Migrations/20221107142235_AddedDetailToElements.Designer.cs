@@ -11,7 +11,7 @@ using RegisterApi.DAL;
 
 namespace RegisterApi.DAL.Migrations
 {
-    [DbContext(typeof(FullStackDbContext))]
+    [DbContext(typeof(DbContext))]
     [Migration("20221107142235_AddedDetailToElements")]
     partial class AddedDetailToElements
     {

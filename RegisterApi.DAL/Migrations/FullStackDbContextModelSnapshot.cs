@@ -10,7 +10,7 @@ using RegisterApi.DAL;
 
 namespace RegisterApi.DAL.Migrations
 {
-    [DbContext(typeof(FullStackDbContext))]
+    [DbContext(typeof(DbContext))]
     partial class FullStackDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

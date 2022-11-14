@@ -11,7 +11,7 @@ using RegisterApi.DAL;
 
 namespace RegisterApi.DAL.Migrations
 {
-    [DbContext(typeof(FullStackDbContext))]
+    [DbContext(typeof(DbContext))]
     [Migration("20221107143616_RemovedTableFormImage")]
     partial class RemovedTableFormImage
     {

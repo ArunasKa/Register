@@ -12,9 +12,9 @@ namespace RegisterApi.DAL.Repository
 {
     public class DbRepository : IDbRepository
     {
-        private readonly FullStackDbContext _context;
+        private readonly DbContext _context;
 
-        public DbRepository(FullStackDbContext context)
+        public DbRepository(DbContext context)
         {
             _context = context;
         }
@@ -27,8 +27,6 @@ namespace RegisterApi.DAL.Repository
         public  void DeleteUser(int id)
         {
             var UserToRemove = _context.UserInformation.Include("Person").Include("Person.HomeAddress").FirstOrDefault(x => x.Id == id);
-            // _context.UserInformation.Remove(UserToRemove);
-           // _context.PersonInformation.Remove(UserToRemove.Person);
             _context.AdrressInformation.Remove(UserToRemove.Person.HomeAddress);
         }
 
@@ -61,9 +59,6 @@ namespace RegisterApi.DAL.Repository
             await _context.SaveChangesAsync();
         }
 
-        public  void UpdatePerson(Person userToUpdate)
-        {
-             _context.Update(userToUpdate);
-        }
+        
     }
 }

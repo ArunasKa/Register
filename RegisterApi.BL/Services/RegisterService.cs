@@ -37,6 +37,7 @@ namespace RegisterApi.BL.Services
             return await _repository.GetUserByIdAsync(id);
         }
 
+
         public async Task UpdateApartmentNumberAsync(int id, string apartmentNumber)
         {
             var person = await _repository.GetPersonByIdAsync(id);

@@ -62,7 +62,7 @@ namespace RegisterApi.Controllers
         }
 
         [HttpPost("Update Phone number")]
-        public async Task<ActionResult> UpdateEmail(int id, int phoneNumber)
+        public async Task<ActionResult> UpdatePhoneNumber(int id, int phoneNumber)
         {
             var userToUpdate = await _registerService.GetPersonByIdAsync(id);
             if (userToUpdate == null)
@@ -82,8 +82,8 @@ namespace RegisterApi.Controllers
             return Ok();
         }
         [HttpPost("Update Photo")]
-        //Quit program before starting end point?
-        public async Task<ActionResult> UpdatePhoto(int id, [FromForm] ImageDto image)
+        //Quit program before starting end point(Only on wrong browser(Chrome is fine))?
+        public async Task<ActionResult> UpdatePhoto(int id,[FromForm]ImageDto image)
         {
             var userToUpdate = await _registerService.GetPersonByIdAsync(id);
             if (userToUpdate == null)
@@ -139,7 +139,7 @@ namespace RegisterApi.Controllers
             return File(image.ImageBytes, image.ImageContentType);
         }
         [HttpGet("Get All info by id")]
-        public async Task<ActionResult> GetAllInfoById(int id)
+        public async Task<ActionResult<Person>> GetAllInfoById(int id)
         {
             var user = await _registerService.GetPersonByIdAsync(id);
             if (user == null)
@@ -156,5 +156,6 @@ namespace RegisterApi.Controllers
             _registerService.DeleteUser(id);
             return Ok("User Deleted");
         }
+       
     }
 }

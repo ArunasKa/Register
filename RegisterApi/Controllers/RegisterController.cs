@@ -14,6 +14,7 @@ namespace RegisterApi.Controllers
 
     public class RegisterController : ControllerBase
     {
+        // daugiau logikos is controller layer i business logic layer?
         private readonly IRegisterService _registerService;
         public RegisterController(IRegisterService registerService)
         {
@@ -136,7 +137,11 @@ namespace RegisterApi.Controllers
         public async Task<ActionResult> DownloadImage([FromQuery] int id)
         {
             var image = await _registerService.GetPersonByIdAsync(id);
-            return File(image.ImageBytes, image.ImageContentType);
+            if(image == null)
+                return NotFound();
+            var imageToDownload = File(image.ImageBytes, image.ImageContentType);
+            
+            return imageToDownload;
         }
         [HttpGet("Get All info by id")]
         public async Task<ActionResult<Person>> GetAllInfoById(int id)

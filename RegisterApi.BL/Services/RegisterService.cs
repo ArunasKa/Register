@@ -2,13 +2,7 @@
 using RegisterApi.DAL.Interfaces;
 using RegisterApi.Domain.Dtos;
 using RegisterApi.Domain.Models;
-using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RegisterApi.BL.Services
 {
@@ -119,13 +113,7 @@ namespace RegisterApi.BL.Services
             await _repository.SaveChangesAsync();
         }
 
-        //public async Task UpdatePersonAsync(int id, Person newUser)
-        //{
-        //    //await _repository.UpdatePerson(newUser);
-        //    var user = await _repository.GetPersonByIdAsync(id);
-        //    user = newUser;
-        //    await _repository.SaveChangesAsync();
-        //}
+        
 
         public async Task UpdateUsernameAsync(int id, string username)
         {

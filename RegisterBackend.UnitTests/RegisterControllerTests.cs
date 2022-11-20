@@ -1,10 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using Moq;
 using RegisterApi.BL.Interfaces;
 using RegisterApi.Controllers;
-using RegisterApi.DAL.Interfaces;
-using RegisterApi.DAL.Repository;
 using RegisterApi.Domain.Dtos;
 using RegisterApi.Domain.Models;
 
@@ -14,7 +11,7 @@ namespace RegisterBackend.UnitTests
     {
         private Mock<IRegisterService> _registerServiceMock;
         private RegisterController _sut;
-        private static int testId = testId;
+        private static int testId = 1;
         public RegisterControllerTests()
         {
             _registerServiceMock = new Mock<IRegisterService>();
@@ -175,14 +172,21 @@ namespace RegisterBackend.UnitTests
         {
             var testPerson = new Person
             {
-                Name = "testName",
                 ImageContentType = "image/jpeg",
-                
+                ImageBytes = new byte[0]
+
             };
-            _registerServiceMock.Setup(w => w.GetPersonByIdAsync(testId)).ReturnsAsync(testPerson);
-            var result = await _sut.GetAllInfoById(testId);
-            var actual = result.Result as StatusCodeResult;
-            Assert.Equal(200, actual.StatusCode);
+            _registerServiceMock.Setup(w => w.GetPersonByIdAsync(testId)).ReturnsAsync(testPerson );
+            var result = await _sut.DownloadImage(testId) as FileContentResult;
+            Assert.Equal(testPerson.ImageBytes, result.FileContents);
+        }
+        [Fact]
+        public async Task DownloadImage_WhenImageisNotFound_ReturnImage()
+        {
+            var result = await _sut.DownloadImage(testId);
+            var actual = result as ObjectResult;
+            Assert.Equal("No user by id", actual.Value);
+
         }
     }
 }

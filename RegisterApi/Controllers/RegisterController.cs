@@ -61,7 +61,6 @@ namespace RegisterApi.Controllers
             await _registerService.UpdatePersonalCodeAsync(id, personalCode);
             return Ok();
         }
-
         [HttpPost("Update Phone number")]
         public async Task<ActionResult> UpdatePhoneNumber(int id, int phoneNumber)
         {
@@ -138,10 +137,10 @@ namespace RegisterApi.Controllers
         {
             var image = await _registerService.GetPersonByIdAsync(id);
             if(image == null)
-                return NotFound();
-            var imageToDownload = File(image.ImageBytes, image.ImageContentType);
+                return BadRequest("No user by id");
+            return File(image.ImageBytes, image.ImageContentType);
             
-            return imageToDownload;
+             
         }
         [HttpGet("Get All info by id")]
         public async Task<ActionResult<Person>> GetAllInfoById(int id)

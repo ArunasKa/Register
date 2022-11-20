@@ -11,7 +11,7 @@ namespace RegisterBackend.UnitTests
     {
         private Mock<IRegisterService> _registerServiceMock;
         private RegisterController _sut;
-        private static int testId = 1;
+        private static int testId = testId;
         public RegisterControllerTests()
         {
             _registerServiceMock = new Mock<IRegisterService>();

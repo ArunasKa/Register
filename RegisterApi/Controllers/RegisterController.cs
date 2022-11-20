@@ -1,11 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RegisterApi.BL.Interfaces;
 using RegisterApi.Domain.Dtos;
 using RegisterApi.Domain.Models;
-using System.Drawing;
 
 namespace RegisterApi.Controllers
 {
@@ -14,7 +12,6 @@ namespace RegisterApi.Controllers
 
     public class RegisterController : ControllerBase
     {
-        // daugiau logikos is controller layer i business logic layer?
         private readonly IRegisterService _registerService;
         public RegisterController(IRegisterService registerService)
         {
@@ -22,7 +19,7 @@ namespace RegisterApi.Controllers
         }
         [HttpPost("Update username")]
         public async Task<ActionResult> UpdateUserName(int id, string username)
-        {//could be with http status to get code from service with all checks for data and if status 200 then update
+        {
             var userToUpdate = await _registerService.GetUserIdAsync(id);
             if (userToUpdate == null)
                 return BadRequest("No user by id");
@@ -82,7 +79,6 @@ namespace RegisterApi.Controllers
             return Ok();
         }
         [HttpPost("Update Photo")]
-        //Quit program before starting end point(Only on wrong browser(Chrome is fine))?
         public async Task<ActionResult> UpdatePhoto(int id,[FromForm]ImageDto image)
         {
             var userToUpdate = await _registerService.GetPersonByIdAsync(id);

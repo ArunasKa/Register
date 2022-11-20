@@ -2,12 +2,8 @@
 using RegisterApi.DAL.Interfaces;
 using RegisterApi.Domain.Dtos;
 using RegisterApi.Domain.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace RegisterApi.BL.Services
 {
@@ -86,7 +82,6 @@ namespace RegisterApi.BL.Services
 
 
             await _repository.InsertAccountAsync(newUser);
-            //await _repository.CreatePersonAccountAsync(newPerson);
             await _repository.SaveChangesAsync();
 
             return true;

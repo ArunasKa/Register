@@ -49,7 +49,7 @@ namespace RegisterApi.Controllers
             return Ok();
         }
         [HttpPost("Update PersonalCode")]
-        public async Task<ActionResult> UpdatePersonalCode(int id, int personalCode)
+        public async Task<ActionResult> UpdatePersonalCode(int id, string personalCode)
         {
             var userToUpdate = await _registerService.GetPersonByIdAsync(id);
             if (userToUpdate == null)
@@ -59,7 +59,7 @@ namespace RegisterApi.Controllers
             return Ok();
         }
         [HttpPost("Update Phone number")]
-        public async Task<ActionResult> UpdatePhoneNumber(int id, int phoneNumber)
+        public async Task<ActionResult> UpdatePhoneNumber(int id, string phoneNumber)
         {
             var userToUpdate = await _registerService.GetPersonByIdAsync(id);
             if (userToUpdate == null)

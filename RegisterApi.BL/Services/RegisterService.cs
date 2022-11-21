@@ -1,6 +1,7 @@
 ﻿using RegisterApi.BL.Interfaces;
 using RegisterApi.DAL.Interfaces;
 using RegisterApi.Domain.Dtos;
+using RegisterApi.Domain.Helper;
 using RegisterApi.Domain.Models;
 using System.Drawing;
 
@@ -18,7 +19,7 @@ namespace RegisterApi.BL.Services
         public   void DeleteUser(int id)
         {
               _repository.DeleteUser(id);
-              _repository.SaveChangesAsync();
+              _repository.SaveChanges();
            
         }
 
@@ -74,14 +75,16 @@ namespace RegisterApi.BL.Services
             await _repository.SaveChangesAsync();
         }
 
-        public async Task UpdatePersonalCodeAsync(int id, int personalCode)
+        public async Task UpdatePersonalCodeAsync(int id, string personalCode)
         {
             var person = await _repository.GetPersonByIdAsync(id);
             person.PersonalCode = personalCode;
             await _repository.SaveChangesAsync();
         }
 
-        public async Task UpdatePhoneNumberAsync(int id, int phoneNumber)
+        
+
+        public async Task UpdatePhoneNumberAsync(int id, string phoneNumber)
         {
             var person = await _repository.GetPersonByIdAsync(id);
             person.PhoneNumber = phoneNumber;
@@ -91,18 +94,12 @@ namespace RegisterApi.BL.Services
         public async  Task UpdatePhotoAsync(int id, ImageDto image)
         {
             var userToUpdate = await _repository.GetPersonByIdAsync(id);
-            Image result = Image.FromStream(image.Image.OpenReadStream(), true, true);
-            var newImage = new Bitmap(200, 200);
-            using (var g = Graphics.FromImage(newImage))
-            {
-                g.DrawImage(result, 0, 0, 200, 200);
-            }
-            ImageConverter converter = new ImageConverter();
-            var resized = (byte[])converter.ConvertTo(newImage, typeof(byte[]));
+            var resized = ImageEdit.ImageResize(image);
 
             userToUpdate.ImageBytes = resized;
             userToUpdate.ImageFileName = image.Image.FileName;
             userToUpdate.ImageContentType = image.Image.ContentType;
+
             await _repository.SaveChangesAsync();
         }
 

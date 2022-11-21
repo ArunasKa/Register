@@ -18,10 +18,7 @@ namespace RegisterApi.DAL.Repository
         {
             _context = context;
         }
-        public DbRepository()
-        {
-
-        }
+       
         public async Task CreatePersonAccountAsync(Person person)
         {
             await _context.PersonInformation.AddAsync(person);
@@ -58,6 +55,9 @@ namespace RegisterApi.DAL.Repository
             await _context.SaveChangesAsync();
         }
 
-        
+        public void SaveChanges()
+        {
+            _context.SaveChanges();
+        }
     }
 }

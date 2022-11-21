@@ -11,8 +11,8 @@ namespace RegisterApi.BL.Interfaces
         Task UpdateUsernameAsync(int id, string username);
         Task UpdateNameAsync(int id, string name);
         Task UpdateLastNameAsync(int id, string lastName);
-        Task UpdatePhoneNumberAsync(int id, int phoneNumber);
-        Task UpdatePersonalCodeAsync(int id, int personalCode);
+        Task UpdatePhoneNumberAsync(int id, string phoneNumber);
+        Task UpdatePersonalCodeAsync(int id, string personalCode);
         Task UpdateEmailAsync(int id, string email);
         Task UpdatePhotoAsync(int id, ImageDto image);
         Task UpdateCityAsync(int id, string city);

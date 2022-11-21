@@ -47,12 +47,6 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "dependencies": {
-            "System.Drawing.Common": {
-              "target": "Package",
-              "version": "[6.0.0, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -129,6 +123,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[6.0.10, )"
+            },
+            "System.Drawing.Common": {
+              "target": "Package",
+              "version": "[6.0.0, )"
             }
           },
           "imports": [
@@ -197,6 +195,10 @@
             "System.ComponentModel.Annotations": {
               "target": "Package",
               "version": "[5.0.0, )"
+            },
+            "System.Drawing.Common": {
+              "target": "Package",
+              "version": "[6.0.0, )"
             }
           },
           "imports": [

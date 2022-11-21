@@ -1351,8 +1351,7 @@
       },
       "RegisterApi.BL/1.0.0": {
         "dependencies": {
-          "RegisterApi.DAL": "1.0.0",
-          "System.Drawing.Common": "6.0.0"
+          "RegisterApi.DAL": "1.0.0"
         },
         "runtime": {
           "RegisterApi.BL.dll": {}
@@ -1362,7 +1361,8 @@
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "6.0.10",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.10",
-          "RegisterApi.Domain": "1.0.0"
+          "RegisterApi.Domain": "1.0.0",
+          "System.Drawing.Common": "6.0.0"
         },
         "runtime": {
           "RegisterApi.DAL.dll": {}
@@ -1371,7 +1371,8 @@
       "RegisterApi.Domain/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Http.Features": "5.0.17",
-          "System.ComponentModel.Annotations": "5.0.0"
+          "System.ComponentModel.Annotations": "5.0.0",
+          "System.Drawing.Common": "6.0.0"
         },
         "runtime": {
           "RegisterApi.Domain.dll": {}

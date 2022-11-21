@@ -1,12 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "NKNR8VuUUq6WuMlC4idTWCZePcjP2Kqzh5VwwP2++Z+ggDJgXPmvxD0Mf9rRwjjvtz6OuSLl7muuF0Q4HrRL7g==",
+  "dgSpecHash": "e9FIWv1arh35SDDz0IUbSBZBE50JLn+bF0KOeNgoQIeoreb35SsiBVLAx8+1QY9M35O4RnkrITPhxGMXV5qkCg==",
   "success": true,
   "projectFilePath": "E:\\GitHub\\Register Project\\Register\\RegisterApi.Domain\\RegisterApi.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\aruna\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
     "C:\\Users\\aruna\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
+    "C:\\Users\\aruna\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\aruna\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
+    "C:\\Users\\aruna\\.nuget\\packages\\system.drawing.common\\6.0.0\\system.drawing.common.6.0.0.nupkg.sha512",
     "C:\\Users\\aruna\\.nuget\\packages\\system.io.pipelines\\5.0.2\\system.io.pipelines.5.0.2.nupkg.sha512"
   ],
   "logs": []

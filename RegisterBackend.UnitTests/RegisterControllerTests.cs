@@ -47,26 +47,26 @@ namespace RegisterBackend.UnitTests
         public async Task UpdatePersonalCode_WhenPersonFound_ReturnOkCodeResult()
         {
             _registerServiceMock.Setup(w => w.GetPersonByIdAsync(testId)).ReturnsAsync(new Person { });
-            var result = await _sut.UpdatePersonalCode(testId, 1) as StatusCodeResult;
+            var result = await _sut.UpdatePersonalCode(testId, "1") as StatusCodeResult;
             Assert.Equal(200, result.StatusCode);
         }
         [Fact]
         public async Task UpdatePersonalCode_WhenPersonNotFound_ReturnNull()
         {
-            var result = await _sut.UpdatePersonalCode(testId, 1) as StatusCodeResult;
+            var result = await _sut.UpdatePersonalCode(testId, "1") as StatusCodeResult;
             Assert.Equal(null, result);
         }
         [Fact]
         public async Task UpdatePhoneNumber_WhenPersonFound_ReturnOkCodeResult()
         {
             _registerServiceMock.Setup(w => w.GetPersonByIdAsync(testId)).ReturnsAsync(new Person { });
-            var result = await _sut.UpdatePhoneNumber(testId, 1) as StatusCodeResult;
+            var result = await _sut.UpdatePhoneNumber(testId, "1") as StatusCodeResult;
             Assert.Equal(200, result.StatusCode);
         }
         [Fact]
         public async Task UpdatePhoneNumber_WhenPersonNotFound_ReturnNull()
         {
-            var result = await _sut.UpdatePhoneNumber(testId, 1) as StatusCodeResult;
+            var result = await _sut.UpdatePhoneNumber(testId, "1") as StatusCodeResult;
             Assert.Equal(null, result);
         }
         [Fact]

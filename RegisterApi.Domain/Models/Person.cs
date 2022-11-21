@@ -9,13 +9,13 @@ namespace RegisterApi.Domain.Models
         public string Name { get; set; }
         [MaxLength(250), Required]
         public string LastName { get; set; }
-        [MaxLength(50), Required]
-        public int PersonalCode { get; set; }
-        [MaxLength(50), Required]
-        public int PhoneNumber { get; set; }
+        [MaxLength(250), Required]
+        public string PersonalCode { get; set; }
+        [MaxLength(250), Required]
+        public string PhoneNumber { get; set; }
         [MaxLength(500), Required]
         public string Email { get; set; }
-        [MaxLength(500), Required]
+        [Required]
         public byte[] ImageBytes { get; set; }
         [MaxLength(250), Required]
         public string ImageFileName { get; set; }

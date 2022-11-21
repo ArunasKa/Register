@@ -15,6 +15,7 @@ namespace RegisterApi.DAL.Interfaces
         public  Task SaveChangesAsync();
         public  Task CreatePersonAccountAsync(Person person);
         public Task<UserAccount?> GetAccountById(int id);
+        public void SaveChanges();
         public Task<Person?> GetPersonByIdAsync(int id);
         public Task<UserAccount?> GetUserByIdAsync(int id);
         public void DeleteUser(int id);

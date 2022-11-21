@@ -1,6 +1,7 @@
 ﻿using RegisterApi.BL.Interfaces;
 using RegisterApi.DAL.Interfaces;
 using RegisterApi.Domain.Dtos;
+using RegisterApi.Domain.Helper;
 using RegisterApi.Domain.Models;
 using System.Security.Cryptography;
 using System.Text;
@@ -46,7 +47,7 @@ namespace RegisterApi.BL.Services
 
             var (hash, salt) = CreatePasswordHash(signupDto.Password);
 
-
+            var resizeImage = ImageEdit.ImageResize(new ImageDto {Image = signupDto.PersonDto.Image }); 
 
             using var memoryStream = new MemoryStream();
             signupDto.PersonDto.Image.CopyTo(memoryStream);
@@ -58,7 +59,7 @@ namespace RegisterApi.BL.Services
                 PersonalCode = signupDto.PersonDto.PersonalCode,
                 PhoneNumber = signupDto.PersonDto.PhoneNumber,
                 Email = signupDto.PersonDto.Email,
-                ImageBytes = imageByte,
+                ImageBytes = resizeImage,
                 ImageFileName = signupDto.PersonDto.Image.FileName,
                 ImageContentType = signupDto.PersonDto.Image.ContentType,
                 HomeAddress = new Address

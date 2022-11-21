@@ -9,7 +9,7 @@ namespace RegisterApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-
+    [Authorize]
     public class RegisterController : ControllerBase
     {
         private readonly IRegisterService _registerService;

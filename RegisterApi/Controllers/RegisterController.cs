@@ -146,16 +146,7 @@ namespace RegisterApi.Controllers
                 return BadRequest("No user by id");
             return Ok(user);
         }
-        [HttpDelete("Delete User")]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
-        public async Task<ActionResult> Delete(int id)
-        {
-            var user = await _registerService.GetUserIdAsync(id);
-            if (user == null)
-                return BadRequest("No user by id");
-            _registerService.DeleteUser(id);
-            return Ok("User Deleted");
-        }
+        
        
     }
 }

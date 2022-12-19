@@ -19,5 +19,6 @@ namespace RegisterApi.BL.Interfaces
         Task UpdateStreetNameAsync(int id, string streetName);
         Task UpdateHouseNumberAsync(int id, string houseNumber);
         Task UpdateApartmentNumberAsync(int id, string apartmentNumber);
+        
     }
 }
